@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="LOG_FILE" value="log/app.log"/>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>log/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each archived file, size max 100KB -->
+            <maxFileSize>100KB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20MB,
+				it will delete old archived file (QUEUE) -->
+            <totalSizeCap>20MB</totalSizeCap>
+            <!-- keep 60 days -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <springProfile name="dev">
+        <root level="error">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE-ROLLING"/>
+        </root>
+        <logger name="com.example" additivity="false" level="trace">
+            <appender-ref ref="FILE-ROLLING"/>
+        </logger>
+        <logger name="com.example" level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <logger name="com.example" level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE-ROLLING"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="error">
+            <appender-ref ref="FILE-ROLLING"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <logger name="com.example" additivity="false" level="trace">
+            <appender-ref ref="FILE-ROLLING"/>
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <logger name="com.example" additivity="false" level="debug">
+            <appender-ref ref="FILE-ROLLING"/>
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <logger name="com.example" additivity="false" level="info">
+            <appender-ref ref="FILE-ROLLING"/>
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+</configuration>

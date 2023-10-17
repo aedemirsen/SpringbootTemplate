@@ -1,0 +1,45 @@
+HELP.md
+target/
+dependency-reduced-pom.xml
+buildNumber.properties
+*/.mvn/timing.properties
+*/.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+.DS_Store
+
+log/
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/.metadata/
+build/
+
+### VS Code ###
+.vscode/
+
+*idx_*
+/data/nodes/
+/docker/postgres/data/
+#/docker/.env

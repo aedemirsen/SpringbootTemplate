@@ -1,0 +1,48 @@
+app:
+  #  frontend_url: http://localhost:3000
+  allowed-origins: >
+    http://localhost:3000
+
+server:
+#  servlet:
+#    context-path: /api -- you can define root url here
+  port: 8080
+
+spring:
+  application:
+    name: springboot_template
+  profiles:
+    active: dev
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq_user
+    password: p.rabbitmq
+
+mail:
+  info: iletisim@example.com
+
+security:
+  jwt:
+    secret: 5Bh3jKz9yMnRx1oiwvPl6c8t0NeLQH7JOTuU2EDkrgVZIfWspXFYd4CmASGaB
+    expiration-time: 1800000 # milliseconds - 3 hours
+
+cache:
+  config:
+    entryTtl: 60
+    userRoles:
+      entryTtl: 30
+    configurations:
+      entryTtl: 30
+
+# Springdoc configurations
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /docs/ui
