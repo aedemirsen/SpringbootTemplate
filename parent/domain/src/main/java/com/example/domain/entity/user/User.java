@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "\"user\"")
 public class User extends BaseDatedEntity {
 
     @Column(unique = true)
@@ -25,6 +25,7 @@ public class User extends BaseDatedEntity {
     private String name;
     private String surname;
     private String password;
+    @Column(unique = true)
     private String mailAddress;
 
 

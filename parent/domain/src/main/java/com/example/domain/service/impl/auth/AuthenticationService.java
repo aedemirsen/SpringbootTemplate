@@ -1,9 +1,9 @@
 package com.example.domain.service.impl.auth;
 
 import com.example.core.constants.SecurityConstants;
-import com.example.domain.model.auth.AuthResponseModel;
-import com.example.domain.model.auth.LoginModel;
-import com.example.domain.model.auth.RegisterModel;
+import com.example.domain.entity.auth.AuthResponseModel;
+import com.example.domain.entity.auth.LoginModel;
+import com.example.domain.entity.auth.RegisterModel;
 import com.example.domain.entity.user.Role;
 import com.example.domain.entity.user.User;
 import com.example.domain.exception.user.UsernameAlreadyExistsException;
@@ -23,8 +23,8 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class AuthenticationService implements IAuthenticationService {
 
     private final IUserService userService;

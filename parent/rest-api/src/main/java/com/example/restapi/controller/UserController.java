@@ -1,5 +1,6 @@
 package com.example.restapi.controller;
 
+import com.example.core.payload.GenericResponse;
 import com.example.domain.service.interfaces.user.IUserService;
 import com.example.restapi.dto.user.UserDto;
 import com.example.restapi.mapper.user.IUserMapper;
@@ -22,7 +23,10 @@ public class UserController {
     private final IUserMapper userMapper;
 
     @GetMapping("/")
-    public List<UserDto> findAll(@ParameterObject Pageable pageable){
-        return userService.findAll(pageable).stream().map(userMapper::fromUser).collect(Collectors.toList());
+    public GenericResponse<List<UserDto>> findAll(@ParameterObject Pageable pageable){
+        return GenericResponse.<List<UserDto>>builder()
+                .success(Boolean.TRUE)
+                .data(userService.findAll(pageable).stream().map(userMapper::fromUser).collect(Collectors.toList()))
+                .build();
     }
 }

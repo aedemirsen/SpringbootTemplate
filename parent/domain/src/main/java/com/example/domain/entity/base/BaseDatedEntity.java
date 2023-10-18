@@ -34,7 +34,7 @@ public class BaseDatedEntity extends BaseEntity{
 
     @PreUpdate
     public void onPreUpdate() {
-        this.setCreateDate(this.createDate);
+        this.setCreateDate(this.getCreateDate());
         this.setUpdateDate(LocalDateTime.now());
     }
 }

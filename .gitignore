@@ -1,5 +1,6 @@
 HELP.md
 target/
+out/
 dependency-reduced-pom.xml
 buildNumber.properties
 */.mvn/timing.properties
@@ -9,7 +10,6 @@ buildNumber.properties
 .DS_Store
 
 log/
-
 
 ### STS ###
 .apt_generated
