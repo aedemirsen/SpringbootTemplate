@@ -18,7 +18,7 @@ Ayrıca, "docker" ve "kubernetes" modülleri, projeyi konteynerleştirme ve dağ
 süreçlerini destekler. Şablon, bir dizi yaygın teknolojiyi kullanır, 
 bu da projelerin hızlı bir şekilde başlatılmasını ve geliştirilmesini kolaylaştırır. 
 Kilit teknolojiler arasında Spring Boot, Hibernate, veritabanları (PostgreSQL veya MySQL), 
-Docker ve Docker Compose, logging (Logback, SLF4J), Lombok, 
+Docker ve Docker Compose, logging (Logback, SLF4J), Lombok, Swagger,
 JWT tabanlı Spring Security, global hata yönetimi/controller advice, 
 Redis cache, RabbitMQ mesaj kuyruğu, i18n (İngilizce ve Türkçe), 
 SonarQube entegrasyonu ve birim(unit) testleri (service, controller, repository) bulunur.
@@ -38,6 +38,8 @@ _**Docker/Docker Compose:**_ Konteynerleştirme ve uygulamanın hızlı dağıt�
 _**Logging (Logback, SLF4J):**_ Uygulama loglarını kaydetmek ve izlemek için kullanılır.
 
 _**Lombok:**_ Java sınıflarının yazılmasını basitleştiren ve kod karışıklığını(boiler plate) azaltan bir kütüphanedir.
+
+_**Swagger:**_ RESTful API hizmetleri için dokümantasyon oluşturma konusunda bir standart sağlar ve API kullanıcılarına bir arayüz sunar.
 
 _**Spring Security (JWT tabanlı):**_ Kimlik doğrulama ve yetkilendirme işlemleri için kullanılır.
 
@@ -88,9 +90,36 @@ Projenizi Docker ile konteynerleştirmek isterseniz, docker klasöründe Dockerf
 
 Projede örnek oluşturması açısından ve Spring Security altyapısının oluşturulması için, User ve Role entity, service, repository, controller, dto ve mapper sınıflarını yazılmıştır. 
 
-Bu template'de kullanılan bazı yapıları detaylı anlattığım yazılarıma aşağıdaki linkten ulaşabilirsiniz:
+Bu template'de kullanılan bazı yapıları detaylı anlattığım yazılarıma aşağıdaki linklerden ulaşabilirsiniz:
 
-**https://medium.com/@aedemirsen**
+**ORM Nedir? : https://medium.com/@aedemirsen/orm-object-relational-mapping-nedir-9c6754e9d705**
+
+**Java Spring Boot RestApi: https://medium.com/@aedemirsen/java-spring-boot-rest-api-ebf676a315b1**
+
+**Springboot ve Docker - 1: https://medium.com/@aedemirsen/java-spring-boot-projesini-docker-container-i̇çerisinde-çalıştırmak-1-212c12663811**
+
+**Springboot ve Docker - 2: https://medium.com/@aedemirsen/java-spring-boot-projesini-docker-container-i̇çerisinde-çalıştırmak-2-317cbf322cbc**
+
+**Kubernetes ve Servis Tipleri: https://medium.com/@aedemirsen/kubernetes-servis-tipleri-cluster-ip-node-port-loadbalancer-f372dd390879**
+
+**Kubernetes ve Podlara erişim: https://medium.com/@aedemirsen/kubernetes-ve-yük-dengeleme-load-balancing-1-429b08ae5150**
+
+**Kubernetes, Load Balancer ve Ingress Controller: https://medium.com/@aedemirsen/kubernetes-loadbalancer-ve-ingress-controller-f805cc98e16**
+
+**Swagger ve OpenAPI: https://medium.com/@aedemirsen/swagger-ve-openapi-nedir-spring-boot-ile-swagger-entegrasyonu-8f0fae0e7eb8**
+
+**Global Exception Handler: https://medium.com/@aedemirsen/spring-boot-global-exception-handler-9a30529ef2c0**
+
+**Request Interceptor: https://medium.com/@aedemirsen/spring-boot-request-interceptor-nedir-ve-nasıl-kullanılır-da809843b71**
+
+**Hibernate PrePersist, PreUpdate: https://medium.com/@aedemirsen/hibernate-prepersist-ve-preupdate-ce412be5b0db**
+
+**Cache: https://medium.com/@aedemirsen/web-projelerinde-önbellek-cache-nedir-e8281c682820**
+
+**Redis: https://medium.com/@aedemirsen/redis-ile-spring-boot-projelerinde-cache-yapısı-b6ba6a5e25fc**
+
+**SonarQube: https://medium.com/@aedemirsen/sonarqube-nedir-ve-spring-boot-projemize-nasıl-entegre-ederiz-9aae3fb9ad4b**
+
 
 ### NOT: Junior developer arkadaşların detaylı bir şekilde tüm yapıyı incelemesini ve kodlarını ince ayrıntılarına kadar okumalarını tavsiye ederim. 
 
