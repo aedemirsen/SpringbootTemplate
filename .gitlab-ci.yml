@@ -1,0 +1,38 @@
+stages:
+  - build
+  #- test
+  - deploy
+
+variables:
+  SPRING_PROFILES_ACTIVE: "prod"
+  MAVEN_CLI_OPTS: "--batch-mode"
+
+build:
+  image: maven:3.8.5-openjdk-17-slim
+  stage: build
+  script:
+    - cd parent
+    - echo "Building Spring Boot backend..."
+    - mvn clean install
+    - mv rest-api/target/*.jar docker/rest/
+  only:
+    - uat
+    - main
+
+# test:
+#   stage: test
+#   script:
+#     - echo "Running tests..."
+#     - mvn test
+
+deploy:
+  image: docker:20.10.16
+  stage: deploy
+  script:
+    - chmod +x deploy.sh
+    - ls -a
+    - ./deploy.sh
+  only:
+    - uat
+    - main
+
