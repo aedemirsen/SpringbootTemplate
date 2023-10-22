@@ -1,6 +1,6 @@
 ### Spring Boot Proje Şablonu Özeti:
 
-Bu Spring Boot proje şablonu java 17, spring 2.5.4 ve maven ile tasarlanmıştır, orta ve büyük springboot monolitik mimari ile tasarlanacak projeler için geliştirilmiştir.
+Bu Spring Boot proje şablonu java 11, spring 2.5.4 ve maven ile tasarlanmıştır, orta ve büyük springboot monolitik mimari ile tasarlanacak projeler için geliştirilmiştir.
 Kapsamlı ve detaylı bir proje mimarisi düşünülerek oluşturulmuştur, başlangıç için ideal bir mimariye sahiptir.
 Projenin ana bileşenleri ve hiyerarşi aşağıdaki gibidir:
 

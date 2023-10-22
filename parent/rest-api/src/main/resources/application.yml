@@ -43,6 +43,6 @@ cache:
 # Springdoc configurations
 springdoc:
   api-docs:
-    path: /docs
+    path: /public/docs
   swagger-ui:
-    path: /docs/ui
+    path: /public/docs/ui
