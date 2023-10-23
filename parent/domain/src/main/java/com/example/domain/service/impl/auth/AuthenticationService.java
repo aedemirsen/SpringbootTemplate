@@ -6,6 +6,7 @@ import com.example.domain.entity.auth.LoginModel;
 import com.example.domain.entity.auth.RegisterModel;
 import com.example.domain.entity.user.Role;
 import com.example.domain.entity.user.User;
+import com.example.domain.exception.NotFoundException;
 import com.example.domain.exception.user.UsernameAlreadyExistsException;
 import com.example.domain.security.JwtProvider;
 import com.example.domain.service.interfaces.auth.IAuthenticationService;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +59,18 @@ public class AuthenticationService implements IAuthenticationService {
 
     @Override
     public AuthResponseModel login(LoginModel loginModel) {
+
+        User foundUser = userService.findByUsername(loginModel.getUsername());
+
+        if (Objects.isNull(foundUser)) {
+            throw new NotFoundException("user.email.password.not.match");
+        } else {
+
+            if (!passwordEncoder.matches( loginModel.getPassword(),foundUser.getPassword())){
+                throw new NotFoundException("user.email.password.not.match");
+            }
+        }
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginModel.getUsername(),
