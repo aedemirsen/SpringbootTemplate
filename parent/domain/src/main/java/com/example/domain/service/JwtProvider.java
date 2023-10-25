@@ -1,4 +1,4 @@
-package com.example.domain.security;
+package com.example.domain.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

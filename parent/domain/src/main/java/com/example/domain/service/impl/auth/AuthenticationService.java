@@ -1,6 +1,5 @@
 package com.example.domain.service.impl.auth;
 
-import com.example.core.constants.SecurityConstants;
 import com.example.domain.entity.auth.AuthResponseModel;
 import com.example.domain.entity.auth.LoginModel;
 import com.example.domain.entity.auth.RegisterModel;
@@ -9,10 +8,11 @@ import com.example.domain.entity.user.User;
 import com.example.domain.exception.NotFoundException;
 import com.example.domain.exception.user.PasswordNotMatchedException;
 import com.example.domain.exception.user.UsernameAlreadyExistsException;
-import com.example.domain.security.JwtProvider;
+import com.example.domain.service.JwtProvider;
 import com.example.domain.service.interfaces.auth.IAuthenticationService;
 import com.example.domain.service.interfaces.user.IRoleService;
 import com.example.domain.service.interfaces.user.IUserService;
+import com.example.domain.util.constants.enums.RoleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,7 +44,7 @@ public class AuthenticationService implements IAuthenticationService {
             throw new UsernameAlreadyExistsException();
         }
         //role - first registered user's role is 'USER' by default
-        Role role = roleService.findByName(SecurityConstants.USER_ROLE);
+        Role role = roleService.findByName(RoleEnum.USER.name());
         List<Role> roles = new ArrayList<>();
         roles.add(role);
         //new user
@@ -73,6 +73,6 @@ public class AuthenticationService implements IAuthenticationService {
                         loginModel.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtProvider.generateToken(authentication);
-        return AuthResponseModel.builder().accessToken(token).tokenType(SecurityConstants.TOKEN_TYPE).build();
+        return AuthResponseModel.builder().accessToken(token).tokenType("Bearer ").build();
     }
 }

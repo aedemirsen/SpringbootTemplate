@@ -20,6 +20,7 @@
         <springboot-validation.version>3.1.0</springboot-validation.version>
         <hibernatesearch.version>6.2.2.Final</hibernatesearch.version>
         <amqp.version>3.1.4</amqp.version>
+        <jwt.version>0.11.5</jwt.version>
     </properties>
 
     <dependencyManagement>
@@ -35,12 +36,6 @@
     </dependencyManagement>
 
     <dependencies>
-
-        <dependency>
-            <groupId>${group.id}</groupId>
-            <artifactId>core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>commons-validator</groupId>
@@ -71,17 +66,38 @@
             <artifactId>spring-data-commons</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jwt.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.hibernate.search</groupId>
             <artifactId>hibernate-search-mapper-orm</artifactId>
             <version>${hibernatesearch.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate.search</groupId>
             <artifactId>hibernate-search-backend-elasticsearch</artifactId>
             <version>${hibernatesearch.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate.search</groupId>
             <artifactId>hibernate-search-backend-lucene</artifactId>
