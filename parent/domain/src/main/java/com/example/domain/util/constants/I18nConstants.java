@@ -17,6 +17,7 @@ public final class I18nConstants {
     public static final String USERNAME_ALREADY_EXISTS = "username.already.exists";
     public static final String USER_REGISTRATION_SUCCESS = "user.registration.success";
     public static final String LOGIN_SUCCESS = "login.success";
+    public static final String PASSWORD_NOT_MATCHED = "user.password.not.match";
 
 
 
