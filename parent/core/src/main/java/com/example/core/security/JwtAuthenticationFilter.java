@@ -1,6 +1,7 @@
-package com.example.domain.security;
+package com.example.core.security;
 
 import com.example.core.constants.SecurityConstants;
+import com.example.domain.service.JwtProvider;
 import com.example.domain.service.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
