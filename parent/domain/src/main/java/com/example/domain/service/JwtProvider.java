@@ -7,7 +7,6 @@ import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -40,10 +39,6 @@ public class JwtProvider {
     public String getUsernameFromJwt(String token){
         return Jwts.parserBuilder().setSigningKey(key()).build()
                 .parseClaimsJws(token).getBody().getSubject();
-    }
-
-    public Authentication getAuthentication() {
-        return SecurityContextHolder.getContext().getAuthentication();
     }
 
     public boolean validateToken(String token) {
