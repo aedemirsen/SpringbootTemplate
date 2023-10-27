@@ -11,9 +11,11 @@ import com.example.domain.entity.auth.RegisterModel;
 import com.example.restapi.dto.auth.AuthResponseDto;
 import com.example.restapi.dto.auth.LoginDto;
 import com.example.restapi.dto.auth.RegisterDto;
+import com.example.restapi.dto.user.UserDto;
 import com.example.restapi.mapper.auth.IAuthResponseMapper;
 import com.example.restapi.mapper.auth.ILoginMapper;
 import com.example.restapi.mapper.auth.IRegisterMapper;
+import com.example.restapi.mapper.user.IUserMapper;
 import com.example.restapi.util.constants.Apis;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -28,21 +30,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
 
     private final IAuthenticationService authenticationService;
+
     private final IRegisterMapper registerMapper;
     private final ILoginMapper loginMapper;
     private final IAuthResponseMapper authResponseMapper;
     private final II18nMessageService messageService;
+    private final IUserMapper userMapper;
 
     @PostMapping(Apis.Auth.REGISTER)
-    public GenericResponse<User> register(@RequestBody RegisterDto registerDto){
+    public GenericResponse<UserDto> register(@RequestBody RegisterDto registerDto){
         RegisterModel mappedRegisterModel = registerMapper.toRegisterModel(registerDto);
         User savedUser = authenticationService.register(mappedRegisterModel);
         String responseMessage = messageService
                 .getMessage(I18nConstants.USER_REGISTRATION_SUCCESS, LocaleContextHolder.getLocale());
-        return GenericResponse.<User>builder()
+        return GenericResponse.<UserDto>builder()
                 .success(true)
                 .message(responseMessage)
-                .data(savedUser)
+                .data(userMapper.fromUser(savedUser))
                 .build();
     }
 

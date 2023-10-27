@@ -1,6 +1,5 @@
 package com.example.restapi.dto.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +15,9 @@ import java.util.List;
 @Setter
 public class UserDto {
 
-    private long id;
     private String username;
-    private String password;
+    private String name;
+    private String surname;
+    private String mailAddress;
     private List<RoleDto> roles;
 }
