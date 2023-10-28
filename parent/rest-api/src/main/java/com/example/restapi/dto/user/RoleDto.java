@@ -12,6 +12,6 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public class RoleDto {
-    private long id;
+
     private String name;
 }
