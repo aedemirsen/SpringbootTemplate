@@ -9,6 +9,8 @@ public final class I18nConstants {
     public static final String LANG_CODE_TR = "TR";
     public static final String DEFAULT_COUNTRY = "TR";
     public static final String DEFAULT_LANGUAGE = "tr";
+    public static final String SUCCESS = "success";
+    public static final String SYSTEM_ERROR = "system.error";
     public static final String LOGIN_BAD_CREDENTIALS = "login.bad.credentials";
     public static final String GLOBAL_UNHANDLED_ERROR = "global.unhandled.error";
     public static final String USER_NOT_FOUND = "user.not.found";

@@ -43,11 +43,7 @@ public class AuthenticationController {
         User savedUser = authenticationService.register(mappedRegisterModel);
         String responseMessage = messageService
                 .getMessage(I18nConstants.USER_REGISTRATION_SUCCESS, LocaleContextHolder.getLocale());
-        return GenericResponse.<UserDto>builder()
-                .success(true)
-                .message(responseMessage)
-                .data(userMapper.fromUser(savedUser))
-                .build();
+        return GenericResponse.success(userMapper.fromUser(savedUser),responseMessage);
     }
 
     @PostMapping(Apis.Auth.LOGIN)
@@ -57,11 +53,7 @@ public class AuthenticationController {
         AuthResponseDto authResponseDto = authResponseMapper.fromAuthResponse(authResponseModel);
         String responseMessage = messageService
                 .getMessage(I18nConstants.LOGIN_SUCCESS, LocaleContextHolder.getLocale());
-        return GenericResponse.<AuthResponseDto>builder()
-                .success(true)
-                .message(responseMessage)
-                .data(authResponseDto)
-                .build();
+        return GenericResponse.success(authResponseDto,responseMessage);
     }
 
 }

@@ -24,9 +24,7 @@ public class UserController {
 
     @GetMapping("/")
     public GenericResponse<List<UserDto>> findAll(@ParameterObject Pageable pageable){
-        return GenericResponse.<List<UserDto>>builder()
-                .success(Boolean.TRUE)
-                .data(userService.findAll(pageable).stream().map(userMapper::fromUser).collect(Collectors.toList()))
-                .build();
+        return GenericResponse
+                .success(userService.findAll(pageable).stream().map(userMapper::fromUser).collect(Collectors.toList()));
     }
 }
